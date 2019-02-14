@@ -1,0 +1,10 @@
+$primaryColor: rgb(19, 32, 16);
+$secondaryColor: #acadda;
+
+h1 {
+  color: $primaryColor;
+  text-align: center
+};
+.container {
+  background-color: $secondaryColor;
+}

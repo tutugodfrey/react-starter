@@ -9,8 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './',
-    publicPath: '/build'
+    contentBase: './build'
   },
   module: {
     rules: [
@@ -18,6 +17,19 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader']
+      },
+      {
+        test: /\.(scss|sass)$/,
+        exclude: /node_modules/,
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+          },
+          {
+            loader: require.resolve('sass-loader'),
+          }
+        ]
       }
     ]
   },
@@ -26,4 +38,4 @@ module.exports = {
       template: path.resolve('./index.html'),
     }),
   ]
-}
+};
